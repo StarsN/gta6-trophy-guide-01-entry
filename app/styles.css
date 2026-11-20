@@ -68,7 +68,7 @@ input, select { font: inherit; }
 .ring { transform: rotate(-90deg); }
 .ring circle { fill: none; stroke-width: 9; }
 .ring-track { stroke: #332a5c; }
-.ring-fill { stroke: url(#ringGrad); stroke: var(--teal); stroke-linecap: round; stroke-dasharray: 257.6; stroke-dashoffset: 257.6; transition: stroke-dashoffset 0.5s ease; }
+.ring-fill { stroke: var(--teal); stroke-linecap: round; stroke-dasharray: 257.6; stroke-dashoffset: 257.6; transition: stroke-dashoffset 0.5s ease; }
 .ring-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .ring-label strong { font-size: 21px; }
 .ring-label span { font-size: 10.5px; color: var(--ink-dim); letter-spacing: 0.08em; text-transform: uppercase; }
