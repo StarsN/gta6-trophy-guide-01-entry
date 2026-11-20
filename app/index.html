@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: cited guides, a platinum roadmap, missable flags, spoiler shield, exportable checklist.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero">
+  <svg class="hero-art" viewBox="0 0 1280 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1b1040"/>
+        <stop offset="0.45" stop-color="#5b2158"/>
+        <stop offset="0.75" stop-color="#c73e6d"/>
+        <stop offset="1" stop-color="#ff9a5c"/>
+      </linearGradient>
+      <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" stop-color="#ffe9a8"/>
+        <stop offset="0.7" stop-color="#ffb347"/>
+        <stop offset="1" stop-color="#ff7e47"/>
+      </radialGradient>
+    </defs>
+    <rect width="1280" height="220" fill="url(#sky)"/>
+    <circle cx="640" cy="238" r="120" fill="url(#sun)"/>
+    <g fill="#120b26">
+      <path d="M0 220 L0 168 L60 168 L60 150 L96 150 L96 220 Z"/>
+      <path d="M110 220 L110 176 L210 176 L210 220 Z"/>
+      <path d="M880 220 L880 158 L920 158 L920 138 L958 138 L958 220 Z"/>
+      <path d="M972 220 L972 182 L1090 182 L1090 220 Z"/>
+      <path d="M1180 220 L1180 162 L1230 162 L1230 220 Z"/>
+      <path d="M300 220 q6 -52 -14 -78 q26 6 30 34 q10 -22 -4 -40 q20 14 16 40 q14 -16 30 -14 q-16 12 -20 32 q16 -4 26 8 q-20 2 -30 18 q-4 30 -2 0 Z"/>
+      <path d="M1050 220 q-4 -44 -26 -62 q24 -2 34 22 q4 -24 -12 -36 q22 6 24 32 q10 -14 26 -16 q-14 14 -14 32 q14 -6 26 2 q-18 6 -24 22 q-8 22 -10 4 Z"/>
+      <rect y="206" width="1280" height="14" fill="#0a0618"/>
+    </g>
+    <g stroke="#ffd257" stroke-width="2" opacity="0.75">
+      <path d="M66 158 h18 M66 166 h18 M928 148 h20 M928 156 h20"/>
+    </g>
+  </svg>
+  <div class="hero-text">
+    <p class="hero-kicker">Grand Theft Auto VI · PlayStation 5 · Offline Guide &amp; Tracker</p>
+    <h1>Leonida <span>Platinum</span></h1>
+    <p class="hero-sub">All 55 trophies — official names, descriptions and grades, a cited guide to each one, the roadmap to the platinum, and every missable flagged before it can bite.</p>
+  </div>
+  <section class="progress-card" aria-label="Your progress">
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 96 96" width="96" height="96" aria-hidden="true">
+        <circle class="ring-track" cx="48" cy="48" r="41"/>
+        <circle class="ring-fill" id="ringFill" cx="48" cy="48" r="41"/>
+      </svg>
+      <div class="ring-label"><strong id="progressPct">0%</strong><span>to platinum</span></div>
+    </div>
+    <div class="progress-numbers">
+      <p class="big-count"><strong id="earnedCount">0</strong> / 55 trophies · <strong id="pointsCount">0</strong> / 1350 pts</p>
+      <div class="grade-bars" id="gradeBars"></div>
+      <p class="progress-hint" id="progressHint">Tick trophies as you earn them — progress saves in this browser.</p>
+    </div>
+  </section>
+</header>
+
+<nav class="tabs" aria-label="Guide sections">
+  <button class="tab is-active" data-view="trophies" type="button">Trophy Checklist</button>
+  <button class="tab" data-view="roadmap" type="button">Platinum Roadmap</button>
+  <button class="tab" data-view="missables" type="button">Missables <span class="tab-badge" id="missableBadge">5</span></button>
+  <button class="tab" data-view="sources" type="button">Sources &amp; Method</button>
+  <span class="tabs-spacer"></span>
+  <button class="tool-btn" id="exportBtn" type="button">Export progress</button>
+  <label class="tool-btn file-btn">Import progress<input id="importFile" type="file" accept="application/json,.json" hidden></label>
+</nav>
+
+<main>
+  <section id="view-trophies" class="view is-active">
+    <div class="toolbar">
+      <input id="searchBox" class="search" type="search" placeholder="Search trophies, guides, missions…" aria-label="Search trophies">
+      <div class="chips" id="kindChips" role="group" aria-label="Filter by kind"></div>
+      <div class="toolbar-row">
+        <label class="select-label">Grade
+          <select id="gradeFilter">
+            <option value="all">All grades</option>
+            <option value="platinum">Platinum</option>
+            <option value="gold">Gold</option>
+            <option value="silver">Silver</option>
+            <option value="bronze">Bronze</option>
+          </select>
+        </label>
+        <label class="switch"><input type="checkbox" id="spoilerToggle"> <span>Spoiler shield — hide story trophies until earned</span></label>
+        <label class="switch"><input type="checkbox" id="hideEarnedToggle"> <span>Hide earned</span></label>
+        <span class="shown-count" id="shownCount"></span>
+      </div>
+    </div>
+    <div class="list-layout">
+      <ol class="trophy-list" id="trophyList"></ol>
+      <aside class="detail" id="detailPanel" aria-label="Trophy guide detail"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view">
+    <div class="section-head">
+      <h2>The road to <em>Vice Got a Price!</em></h2>
+      <p>Five stages, in the order that makes the platinum shortest. Stage times are pacing estimates built on published roadmap reporting of roughly 200 hours for a full completion (PowerPyx, cited on the Sources tab); the order itself is built from the official trophy descriptions — story first, because activities, properties and robbery targets unlock as the chapters advance, and the one-off moments flagged missable all live inside the story pass.</p>
+    </div>
+    <div id="roadmapStages"></div>
+  </section>
+
+  <section id="view-missables" class="view">
+    <div class="section-head">
+      <h2>Missable trophies — read before you play</h2>
+      <p>The official descriptions promise no chapter select and no mission replay, so any trophy tied to a single story moment, a single location visit or a single choice is treated here as missable until earned. Five trophies carry that flag; each card below quotes the official description the flag is built from, so you can judge the reasoning yourself.</p>
+    </div>
+    <div class="missable-grid" id="missableGrid"></div>
+  </section>
+
+  <section id="view-sources" class="view">
+    <div class="section-head">
+      <h2>Sources &amp; method</h2>
+      <p>Every guide in this app is written for this entry, in our own words. Facts are drawn from the sources below and each trophy's guide names its sources beside it — a cited guide beats an uncited one, however detailed. Trophy names, descriptions and grades are the official ones, shown exactly as PlayStation publishes them.</p>
+    </div>
+    <div class="sources-grid" id="sourcesGrid"></div>
+    <div class="method-card">
+      <h3>How the roadmap and missable flags were built</h3>
+      <p>The roadmap order and the five missable flags are derived from the official descriptions themselves: chapter and named-mission trophies define the story spine; strand-final trophies define the stranger stage; counted trophies (250 stunts, 42 shooting-range challenges, 100 photo spots, 3 card sets) define the grinds and sweeps; and any description that names a single moment, place or choice — an unscheduled departure at VCIA, a cocktail on Ocean Beach, a showroom escape, a bowling follow-through, a decision made “for better or worse” — is flagged missable, because the list nowhere promises a way back.</p>
+      <p>The PS5 list contains no online trophies: all 55 are offline, so the Online filter on the checklist honestly reads zero. Progress is stored only in your browser (localStorage) and can be exported to a file and imported back at any time. This app loads nothing from the network and works fully offline.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Platinum is an unofficial fan guide. Not affiliated with Rockstar Games or Take-Two Interactive. No Rockstar artwork is used; the look of this guide is its own. Trophy names and descriptions © Sony Interactive Entertainment / Rockstar Games, shown for identification.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
